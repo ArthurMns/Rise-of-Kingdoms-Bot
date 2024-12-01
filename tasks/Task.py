@@ -20,6 +20,7 @@ import time
 from filepath.constants import RESOURCES, SPEEDUPS, BOOSTS, EQUIPMENT, OTHER, MAP, HOME
 from random import randrange, uniform
 
+
 class Task:
 
     center = (640, 360)
@@ -224,20 +225,26 @@ class Task:
             traceback.print_exc()
 
         return pos_list
-    
 
     def check_capcha(self):
-        (found, _, pos) = self.gui.check_any(ImagePathAndProps.VERIFICATION_VERIFY_TITLE_IMAGE_PATH.value)
+        (found, _, pos) = self.gui.check_any(
+            ImagePathAndProps.VERIFICATION_VERIFY_TITLE_IMAGE_PATH.value
+        )
         if found:
             self.tap(pos[0], pos[1] + 258, 1)
             time.sleep(5)
             self.pass_verification()
-        (found, _, pos) = self.gui.check_any(ImagePathAndProps.VERIFICATION_VERIFY_BUTTON_IMAGE_PATH.value)
+        (found, _, pos) = self.gui.check_any(
+            ImagePathAndProps.VERIFICATION_VERIFY_BUTTON_IMAGE_PATH.value
+        )
         if found:
             self.tap(pos[0], pos[1], 1)
             time.sleep(5)
             self.pass_verification()
-        (found, _, pos) = self.gui.check_any(GuiCheckImagePathAndProps.VERIFICATION_CHEST_IMG_PATH.value, GuiCheckImagePathAndProps.VERIFICATION_CHEST1_IMG_PATH.value)
+        (found, _, pos) = self.gui.check_any(
+            GuiCheckImagePathAndProps.VERIFICATION_CHEST_IMG_PATH.value,
+            GuiCheckImagePathAndProps.VERIFICATION_CHEST1_IMG_PATH.value,
+        )
         if found:
             self.tap(pos[0], pos[1], 1)
             time.sleep(5)
