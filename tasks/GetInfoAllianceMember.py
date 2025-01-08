@@ -1,12 +1,12 @@
 import traceback
 
-from filepath.file_relative_paths import ImagePathAndProps
-from tasks.constants import BuildingNames
 from tasks.constants import TaskName
 from tasks.Task import Task
 
+from tasks.constants import TaskName
 
-class Tavern(Task):
+
+class GetInfoAllianceMember(Task):
     def __init__(self, bot):
         super().__init__(bot)
 
@@ -14,3 +14,4 @@ class Tavern(Task):
         print("ça maaaaaarche")
         super().set_text(title="GetInfoAllianceMember", remove=True)
         super().set_text(insert="Init view")
+        print(next_task)

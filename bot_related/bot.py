@@ -4,6 +4,7 @@ import threading
 from threading import Lock
 import time
 
+
 from tasks.Items import Items
 from tasks.LostCanyon import LostCanyon
 from tasks.Task import *
@@ -32,6 +33,7 @@ from tasks.Training import Training
 from tasks.MysteryMerchant import MysteryMerchant
 from tasks.SunsetCanyon import SunsetCanyon
 from tasks.constants import TaskName
+from tasks.GetInfoAllianceMember import GetInfoAllianceMember
 from utils import stop_thread
 import random
 
@@ -80,6 +82,7 @@ class Bot:
         self.sunset_canyon = SunsetCanyon(self)
         self.lost_canyon = LostCanyon(self)
         self.items_task = Items(self)
+        self.get_info_alliance_member = GetInfoAllianceMember(self)
 
         # Other task
         self.screen_shot_task = ScreenShot(self)
@@ -125,6 +128,7 @@ class Bot:
             [self.sunset_canyon, "enableSunsetCanyon"],
             [self.lost_canyon, "enableLostCanyon"],
             [self.items_task, "useItems"],
+            [self.get_info_alliance_member, "enableGetInfoAllianceMember"],
         ]
 
         if self.building_pos is None:
